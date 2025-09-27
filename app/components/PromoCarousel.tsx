@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X, BarChart3, DollarSign, FileText, Zap } from 'lucide-react';
 
 interface Promotion {
   id: string;
@@ -12,7 +12,7 @@ interface Promotion {
   ctaLink: string;
   bgColor: string;
   textColor: string;
-  icon: string;
+  icon: React.ComponentType<{ className?: string }>;
 }
 
 const promotions: Promotion[] = [
@@ -25,7 +25,7 @@ const promotions: Promotion[] = [
     ctaLink: '/tramites-y-servicios?categoria=Contabilidad',
     bgColor: 'bg-gradient-to-r from-accent-600 to-accent-700',
     textColor: 'text-white',
-    icon: '📊'
+    icon: BarChart3
   },
   {
     id: 'resico-promo',
@@ -36,7 +36,7 @@ const promotions: Promotion[] = [
     ctaLink: '/tramites-y-servicios?categoria=Planeación fiscal',
     bgColor: 'bg-gradient-to-r from-success-600 to-success-700',
     textColor: 'text-white',
-    icon: '💰'
+    icon: DollarSign
   },
   {
     id: 'facturacion-promo',
@@ -47,7 +47,7 @@ const promotions: Promotion[] = [
     ctaLink: '/tramites-y-servicios?categoria=Facturación & Nómina',
     bgColor: 'bg-gradient-to-r from-primary-600 to-primary-700',
     textColor: 'text-white',
-    icon: '📄'
+    icon: FileText
   },
   {
     id: 'regularizacion-promo',
@@ -58,7 +58,7 @@ const promotions: Promotion[] = [
     ctaLink: '/tramites-y-servicios?categoria=Trámites SAT',
     bgColor: 'bg-gradient-to-r from-orange-600 to-orange-700',
     textColor: 'text-white',
-    icon: '⚡'
+    icon: Zap
   }
 ];
 
@@ -104,7 +104,9 @@ export default function PromoCarousel() {
         <div className="flex items-center justify-between">
           <div className="flex-1">
             <div className="flex items-center gap-3 mb-2">
-              <span className="text-2xl">{currentPromo.icon}</span>
+              <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center">
+                <currentPromo.icon className="h-5 w-5" />
+              </div>
               <div>
                 <span className="text-sm font-medium opacity-90">{currentPromo.subtitle}</span>
                 <h3 className="text-xl md:text-2xl font-bold">{currentPromo.title}</h3>

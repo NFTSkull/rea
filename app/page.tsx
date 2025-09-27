@@ -18,8 +18,13 @@ import {
   Receipt,
   Building,
   AlertTriangle,
-  MoreHorizontal
+  MoreHorizontal,
+  BarChart3,
+  DollarSign,
+  FileSpreadsheet,
+  Zap
 } from 'lucide-react';
+import Image from 'next/image';
 
 export default function HomePage() {
   const popularServices = services.slice(0, 6);
@@ -111,29 +116,102 @@ export default function HomePage() {
     <div className="min-h-screen bg-bg-primary">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-accent-700 text-white section-padding overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent"></div>
         </div>
         <div className="container-custom relative">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              ¿Qué trámite necesitas hoy?
-            </h1>
-            <p className="text-xl md:text-2xl mb-12 text-primary-100 leading-relaxed">
-              Contabilidad y trámites ante el SAT para personas y empresas
-            </p>
-            <div className="max-w-2xl mx-auto mb-12">
-              <SearchBar 
-                onSearch={() => {}}
-                placeholder="Buscar servicios contables..."
-                className="text-lg"
-              />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Content */}
+            <div className="text-center lg:text-left">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                ¿Qué trámite necesitas hoy?
+              </h1>
+              <p className="text-xl md:text-2xl mb-8 text-primary-100 leading-relaxed">
+                Contabilidad y trámites ante el SAT para personas y empresas
+              </p>
+              
+              {/* Key Features */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                <div className="flex items-center gap-3 text-primary-100">
+                  <div className="w-8 h-8 rounded-lg bg-accent-500/20 flex items-center justify-center">
+                    <BarChart3 className="h-4 w-4 text-accent-400" />
+                  </div>
+                  <span className="text-sm font-medium">Declaraciones anuales</span>
+                </div>
+                <div className="flex items-center gap-3 text-primary-100">
+                  <div className="w-8 h-8 rounded-lg bg-accent-500/20 flex items-center justify-center">
+                    <DollarSign className="h-4 w-4 text-accent-400" />
+                  </div>
+                  <span className="text-sm font-medium">RESICO y RIF</span>
+                </div>
+                <div className="flex items-center gap-3 text-primary-100">
+                  <div className="w-8 h-8 rounded-lg bg-accent-500/20 flex items-center justify-center">
+                    <FileSpreadsheet className="h-4 w-4 text-accent-400" />
+                  </div>
+                  <span className="text-sm font-medium">Facturación electrónica</span>
+                </div>
+                <div className="flex items-center gap-3 text-primary-100">
+                  <div className="w-8 h-8 rounded-lg bg-accent-500/20 flex items-center justify-center">
+                    <Zap className="h-4 w-4 text-accent-400" />
+                  </div>
+                  <span className="text-sm font-medium">Regularizaciones</span>
+                </div>
+              </div>
+
+              <div className="max-w-xl mx-auto lg:mx-0 mb-8">
+                <SearchBar 
+                  onSearch={() => {}}
+                  placeholder="Buscar servicios contables..."
+                  className="text-lg"
+                />
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <WhatsappCTA className="btn-accent" />
+                <Link href="/contacto" className="btn-secondary">
+                  Agendar llamada
+                </Link>
+              </div>
             </div>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <WhatsappCTA className="btn-accent" />
-              <Link href="/contacto" className="btn-secondary">
-                Agendar llamada
-              </Link>
+
+            {/* Hero Image */}
+            <div className="relative">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/hero.png"
+                  alt="Servicios contables REA - Contabilidad y trámites ante el SAT"
+                  width={600}
+                  height={400}
+                  className="w-full h-auto object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary-900/20 to-transparent"></div>
+              </div>
+              
+              {/* Floating Stats */}
+              <div className="absolute -bottom-6 -left-6 bg-bg-primary rounded-xl p-4 shadow-large border border-border-light">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-accent-100 flex items-center justify-center">
+                    <Star className="h-5 w-5 text-accent-600" />
+                  </div>
+                  <div>
+                    <div className="text-lg font-bold text-text-primary">500+</div>
+                    <div className="text-xs text-text-tertiary">Clientes satisfechos</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="absolute -top-6 -right-6 bg-bg-primary rounded-xl p-4 shadow-large border border-border-light">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-success-100 flex items-center justify-center">
+                    <FileCheck className="h-5 w-5 text-success-600" />
+                  </div>
+                  <div>
+                    <div className="text-lg font-bold text-text-primary">100%</div>
+                    <div className="text-xs text-text-tertiary">Cumplimiento SAT</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
