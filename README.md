@@ -207,14 +207,22 @@ export const categories: Category[] = [
 ## Despliegue
 
 ### Vercel (Recomendado)
-1. Conectar repositorio a Vercel
-2. Configurar variables de entorno
-3. Desplegar automáticamente
+El proyecto ya está configurado para Vercel en: https://rea-drab.vercel.app/
+
+**Pasos para desplegar:**
+1. Conectar el repositorio https://github.com/NFTSkull/rea.git a Vercel
+2. Configurar las siguientes variables de entorno en Vercel:
+   ```
+   NEXT_PUBLIC_GA_ID=tu_google_analytics_id
+   NEXT_PUBLIC_WHATSAPP_NUMBER=528121102005
+   NEXT_PUBLIC_SITE_URL=https://rea-drab.vercel.app
+   ```
+3. El despliegue será automático en cada push a la rama main
 
 ### Otras plataformas
 ```bash
 # Construir para producción
-pnpm build
+npm run build
 
 # Los archivos estáticos estarán en .next/
 ```
