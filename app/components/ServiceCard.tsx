@@ -39,7 +39,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
           </p>
         </div>
         {service.oldPrice && (
-          <span className="bg-accent text-white text-xs px-2 py-1 rounded-full ml-2">
+          <span className="bg-accent text-white text-xs px-2 py-1 rounded-full ml-2 font-medium">
             En promoción
           </span>
         )}

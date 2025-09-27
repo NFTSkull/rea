@@ -3,6 +3,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { services, getServicesByCategory, getServicesByAudience, searchServices } from '@/data/services';
+import type { Category, Audience } from '@/data/services';
 import SearchBar from '@/app/components/SearchBar';
 import Filters from '@/app/components/Filters';
 import ServiceCard from '@/app/components/ServiceCard';
@@ -15,8 +16,12 @@ export default function TramitesYServiciosPage() {
   const router = useRouter();
   
   const [query, setQuery] = useState(searchParams.get('q') || '');
-  const [selectedCategory, setSelectedCategory] = useState(searchParams.get('categoria') || 'Todas');
-  const [selectedAudience, setSelectedAudience] = useState(searchParams.get('audiencia') || 'Todos');
+  const [selectedCategory, setSelectedCategory] = useState<Category | 'Todas'>(
+    (searchParams.get('categoria') as Category) || 'Todas'
+  );
+  const [selectedAudience, setSelectedAudience] = useState<Audience | 'Todos'>(
+    (searchParams.get('audiencia') as Audience) || 'Todos'
+  );
   const [priceRange, setPriceRange] = useState({
     min: parseInt(searchParams.get('min') || '0') || 0,
     max: parseInt(searchParams.get('max') || '0') || 0
@@ -73,11 +78,11 @@ export default function TramitesYServiciosPage() {
     setQuery(searchQuery);
   };
 
-  const handleCategoryChange = (category: string) => {
+  const handleCategoryChange = (category: Category | 'Todas') => {
     setSelectedCategory(category);
   };
 
-  const handleAudienceChange = (audience: string) => {
+  const handleAudienceChange = (audience: Audience | 'Todos') => {
     setSelectedAudience(audience);
   };
 

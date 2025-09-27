@@ -51,7 +51,7 @@ export default function ServiceDetailPage({ params }: ServiceDetailPageProps) {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": service.title,
-    "description": service.description,
+    "description": service.summary,
     "provider": {
       "@type": "LocalBusiness",
       "name": "REA Despacho Contable",
@@ -73,14 +73,14 @@ export default function ServiceDetailPage({ params }: ServiceDetailPageProps) {
   const faqStructuredData = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": service.faqs.map(faq => ({
+    "mainEntity": service.faqs?.map(faq => ({
       "@type": "Question",
-      "name": faq.question,
+      "name": faq.q,
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": faq.answer
+        "text": faq.a
       }
-    }))
+    })) || []
   };
 
   return (

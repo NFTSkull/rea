@@ -1,31 +1,28 @@
+type Audience = 'Persona' | 'Empresa' | 'Ambos';
+type Category = 'Trámites SAT' | 'Facturación & Nómina' | 'Capacitación' | 'Planeación fiscal' | 'Contabilidad';
+
 export interface Service {
   slug: string;
   title: string;
   summary: string;
   price: number;
   oldPrice?: number;
-  category: string;
-  audience: 'Persona' | 'Empresa' | 'Ambos';
+  category: Category;
+  audience: Audience;
   features: string[];
-  faqs: FAQ[];
-  description: string;
-  requirements: string[];
-  process: string[];
-  timesAndCosts: string[];
+  requisitos?: string[];
+  proceso?: string[];
+  tiempos?: string[];
+  faqs?: { q: string; a: string }[];
 }
 
-export interface FAQ {
-  question: string;
-  answer: string;
-}
-
-export interface Category {
+export interface CategoryInfo {
   id: string;
-  name: string;
+  name: Category;
   description: string;
 }
 
-export const categories: Category[] = [
+export const categories: CategoryInfo[] = [
   {
     id: 'tramites-sat',
     name: 'Trámites SAT',
@@ -56,7 +53,7 @@ export const categories: Category[] = [
 export const services: Service[] = [
   {
     slug: 'tramites-sat-rfc-efirma-buzon',
-    title: 'Trámites ante el SAT (RFC, e.firma, Buzón)',
+    title: 'Trámites ante el SAT (RFC, e.firma, buzón)',
     summary: 'Alta/modificación de RFC, generación/renovación de e.firma y configuración de Buzón Tributario.',
     price: 300,
     category: 'Trámites SAT',
@@ -67,41 +64,40 @@ export const services: Service[] = [
       'Configuración de Buzón Tributario',
       'Acompañamiento remoto paso a paso'
     ],
-    faqs: [
-      {
-        question: '¿Cuánto tiempo toma obtener la e.firma?',
-        answer: 'El proceso completo puede tomar entre 3 a 5 días hábiles, dependiendo de la documentación proporcionada.'
-      },
-      {
-        question: '¿Necesito ir presencialmente al SAT?',
-        answer: 'No, todo el proceso se puede realizar de manera remota con nuestro acompañamiento.'
-      }
-    ],
-    description: 'Te ayudamos con todos los trámites esenciales ante el SAT para que puedas operar legalmente. Incluye alta o actualización de RFC, obtención de e.firma y configuración del Buzón Tributario.',
-    requirements: [
+    requisitos: [
       'CURP',
       'Comprobante de domicilio',
       'Identificación oficial',
       'Acta de nacimiento'
     ],
-    process: [
+    proceso: [
       'Revisión de documentación',
       'Llenado de formularios',
       'Solicitud de citas',
       'Seguimiento del proceso',
       'Entrega de documentos'
     ],
-    timesAndCosts: [
+    tiempos: [
       'Tiempo estimado: 3-5 días hábiles',
       'Costo: $300 MXN',
       'Incluye seguimiento completo',
       'Sin costos adicionales'
+    ],
+    faqs: [
+      {
+        q: '¿Cuánto tiempo toma obtener la e.firma?',
+        a: 'El proceso completo puede tomar entre 3 a 5 días hábiles, dependiendo de la documentación proporcionada.'
+      },
+      {
+        q: '¿Necesito ir presencialmente al SAT?',
+        a: 'No, todo el proceso se puede realizar de manera remota con nuestro acompañamiento.'
+      }
     ]
   },
   {
     slug: 'facturacion-electronica-y-nomina',
     title: 'Facturación electrónica y nómina',
-    summary: 'Implementación y operación de CFDI, nómina timbrada y reportes.',
+    summary: 'Implementación y operación de CFDI 4.0 y nómina timbrada.',
     price: 1000,
     category: 'Facturación & Nómina',
     audience: 'Empresa',
@@ -111,35 +107,34 @@ export const services: Service[] = [
       'Nómina timbrada y reportes',
       'Capacitación básica al equipo'
     ],
-    faqs: [
-      {
-        question: '¿Qué incluye la implementación?',
-        answer: 'Incluye configuración de certificados, plantillas de facturación, capacitación del equipo y seguimiento por 30 días.'
-      },
-      {
-        question: '¿Puedo usar mi propio PAC?',
-        answer: 'Sí, podemos trabajar con tu PAC actual o recomendarte uno según tus necesidades.'
-      }
-    ],
-    description: 'Implementamos completamente tu sistema de facturación electrónica y nómina timbrada, asegurando el cumplimiento con las obligaciones fiscales.',
-    requirements: [
+    requisitos: [
       'RFC de la empresa',
       'e.firma vigente',
       'Certificado de sello digital',
       'Datos de empleados'
     ],
-    process: [
+    proceso: [
       'Análisis de necesidades',
       'Configuración de certificados',
       'Creación de plantillas',
       'Capacitación del equipo',
       'Pruebas y validación'
     ],
-    timesAndCosts: [
+    tiempos: [
       'Tiempo estimado: 1-2 semanas',
       'Costo: $1,000 MXN',
       'Incluye capacitación',
       'Seguimiento por 30 días'
+    ],
+    faqs: [
+      {
+        q: '¿Qué incluye la implementación?',
+        a: 'Incluye configuración de certificados, plantillas de facturación, capacitación del equipo y seguimiento por 30 días.'
+      },
+      {
+        q: '¿Puedo usar mi propio PAC?',
+        a: 'Sí, podemos trabajar con tu PAC actual o recomendarte uno según tus necesidades.'
+      }
     ]
   },
   {
@@ -153,37 +148,36 @@ export const services: Service[] = [
     features: [
       'Conceptos clave de contabilidad',
       'Obligaciones fiscales frecuentes',
-      'Herramientas y prácticas recomendadas',
+      'Herramientas y mejores prácticas',
       'Sesión de dudas en vivo'
     ],
-    faqs: [
-      {
-        question: '¿Es presencial o en línea?',
-        answer: 'El curso se imparte en línea con sesiones en vivo y material descargable.'
-      },
-      {
-        question: '¿Qué nivel de conocimiento necesito?',
-        answer: 'No necesitas conocimientos previos, el curso está diseñado para principiantes.'
-      }
-    ],
-    description: 'Aprende los fundamentos de la contabilidad y las obligaciones fiscales de manera práctica y sencilla.',
-    requirements: [
+    requisitos: [
       'Computadora con internet',
       'Disponibilidad de 4 horas',
       'Documentos fiscales básicos'
     ],
-    process: [
+    proceso: [
       'Registro y acceso a plataforma',
       'Módulos de aprendizaje',
       'Ejercicios prácticos',
       'Sesión de dudas',
       'Certificado de participación'
     ],
-    timesAndCosts: [
+    tiempos: [
       'Duración: 4 horas',
       'Costo: $3,500 MXN (antes $5,000)',
       'Incluye material descargable',
       'Certificado incluido'
+    ],
+    faqs: [
+      {
+        q: '¿Es presencial o en línea?',
+        a: 'El curso se imparte en línea con sesiones en vivo y material descargable.'
+      },
+      {
+        q: '¿Qué nivel de conocimiento necesito?',
+        a: 'No necesitas conocimientos previos, el curso está diseñado para principiantes.'
+      }
     ]
   },
   {
@@ -200,41 +194,40 @@ export const services: Service[] = [
       'Guía de migración',
       'Checklist de cumplimiento'
     ],
-    faqs: [
-      {
-        question: '¿Cuándo puedo cambiar de régimen?',
-        answer: 'El cambio de régimen se puede realizar en enero de cada año, con algunas excepciones.'
-      },
-      {
-        question: '¿Qué régimen me conviene más?',
-        answer: 'Depende de tus ingresos y tipo de actividad, te ayudamos a evaluar la mejor opción.'
-      }
-    ],
-    description: 'Te ayudamos a evaluar si RESICO o RIF es mejor para tu situación fiscal y te guiamos en el proceso de migración.',
-    requirements: [
+    requisitos: [
       'Estados financieros del año anterior',
       'Comprobantes de ingresos',
       'Información de gastos',
       'RFC vigente'
     ],
-    process: [
+    proceso: [
       'Análisis de situación actual',
       'Simulación de escenarios',
       'Recomendación de régimen',
       'Plan de migración',
       'Seguimiento de cumplimiento'
     ],
-    timesAndCosts: [
+    tiempos: [
       'Tiempo estimado: 1 semana',
       'Costo: $1,000 MXN (antes $1,500)',
       'Incluye simulación',
       'Seguimiento por 3 meses'
+    ],
+    faqs: [
+      {
+        q: '¿Cuándo puedo cambiar de régimen?',
+        a: 'El cambio de régimen se puede realizar en enero de cada año, con algunas excepciones.'
+      },
+      {
+        q: '¿Qué régimen me conviene más?',
+        a: 'Depende de tus ingresos y tipo de actividad, te ayudamos a evaluar la mejor opción.'
+      }
     ]
   },
   {
     slug: 'regularizaciones-y-actualizacion',
     title: 'Regularizaciones y actualización',
-    summary: 'Ponte al día: obligaciones pendientes, declaraciones omitidas y aclaraciones.',
+    summary: 'Obligaciones pendientes, declaraciones omitidas y aclaraciones.',
     price: 500,
     oldPrice: 800,
     category: 'Trámites SAT',
@@ -245,35 +238,34 @@ export const services: Service[] = [
       'Aclaraciones ante SAT',
       'Plan de acción y seguimiento'
     ],
-    faqs: [
-      {
-        question: '¿Qué pasa si tengo declaraciones pendientes?',
-        answer: 'Te ayudamos a presentar todas las declaraciones pendientes y regularizar tu situación fiscal.'
-      },
-      {
-        question: '¿Hay multas por declaraciones tardías?',
-        answer: 'Sí, pero podemos ayudarte a minimizar las multas y regularizar tu situación.'
-      }
-    ],
-    description: 'Te ayudamos a regularizar tu situación fiscal y ponerte al día con todas las obligaciones pendientes.',
-    requirements: [
+    requisitos: [
       'RFC vigente',
       'Documentos fiscales históricos',
       'Comprobantes de ingresos',
       'Información de gastos'
     ],
-    process: [
+    proceso: [
       'Auditoría de situación fiscal',
       'Identificación de pendientes',
       'Elaboración de declaraciones',
       'Presentación ante SAT',
       'Seguimiento de resultados'
     ],
-    timesAndCosts: [
+    tiempos: [
       'Tiempo estimado: 2-3 semanas',
       'Costo: $500 MXN (antes $800)',
       'Incluye presentación',
       'Seguimiento por 6 meses'
+    ],
+    faqs: [
+      {
+        q: '¿Qué pasa si tengo declaraciones pendientes?',
+        a: 'Te ayudamos a presentar todas las declaraciones pendientes y regularizar tu situación fiscal.'
+      },
+      {
+        q: '¿Hay multas por declaraciones tardías?',
+        a: 'Sí, pero podemos ayudarte a minimizar las multas y regularizar tu situación.'
+      }
     ]
   },
   {
@@ -286,38 +278,37 @@ export const services: Service[] = [
     features: [
       'Pólizas y conciliaciones',
       'Declaraciones mensuales',
-      'Cierre y anual',
+      'Cierre anual',
       'Reportes ejecutivos'
     ],
-    faqs: [
-      {
-        question: '¿Qué incluye el servicio mensual?',
-        answer: 'Incluye registro de operaciones, conciliaciones bancarias, declaraciones mensuales y reportes.'
-      },
-      {
-        question: '¿Puedo acceder a mis reportes en línea?',
-        answer: 'Sí, tienes acceso a una plataforma donde puedes ver todos tus reportes y estados financieros.'
-      }
-    ],
-    description: 'Servicio completo de contabilidad mensual y anual para mantener tu empresa al día con todas las obligaciones fiscales.',
-    requirements: [
+    requisitos: [
       'RFC de la empresa',
       'Documentos contables',
       'Comprobantes bancarios',
       'Facturas y recibos'
     ],
-    process: [
+    proceso: [
       'Recopilación de documentos',
       'Registro contable',
       'Conciliaciones',
       'Declaraciones mensuales',
       'Cierre anual'
     ],
-    timesAndCosts: [
+    tiempos: [
       'Servicio mensual: $1,000 MXN',
       'Cierre anual: $2,000 MXN',
       'Incluye reportes',
       'Acceso a plataforma'
+    ],
+    faqs: [
+      {
+        q: '¿Qué incluye el servicio mensual?',
+        a: 'Incluye registro de operaciones, conciliaciones bancarias, declaraciones mensuales y reportes.'
+      },
+      {
+        q: '¿Puedo acceder a mis reportes en línea?',
+        a: 'Sí, tienes acceso a una plataforma donde puedes ver todos tus reportes y estados financieros.'
+      }
     ]
   }
 ];
@@ -326,11 +317,11 @@ export function getServiceBySlug(slug: string): Service | undefined {
   return services.find(service => service.slug === slug);
 }
 
-export function getServicesByCategory(category: string): Service[] {
+export function getServicesByCategory(category: Category): Service[] {
   return services.filter(service => service.category === category);
 }
 
-export function getServicesByAudience(audience: string): Service[] {
+export function getServicesByAudience(audience: Audience): Service[] {
   return services.filter(service => service.audience === audience || service.audience === 'Ambos');
 }
 
@@ -341,4 +332,12 @@ export function searchServices(query: string): Service[] {
     service.summary.toLowerCase().includes(lowercaseQuery) ||
     service.features.some(feature => feature.toLowerCase().includes(lowercaseQuery))
   );
+}
+
+export function getUniqueCategories(): Category[] {
+  return Array.from(new Set(services.map(service => service.category)));
+}
+
+export function getUniqueAudiences(): Audience[] {
+  return Array.from(new Set(services.map(service => service.audience)));
 }

@@ -27,18 +27,13 @@ export default function WhatsappCTA({
   };
 
   const buildMessage = () => {
-    let message = '¡Hola! Me interesa solicitar información sobre ';
+    let message = 'Hola REA, me interesa el servicio: ';
     
     if (serviceName) {
-      message += `el servicio: ${serviceName}`;
-      if (price) {
-        message += ` (${formatPrice(price)})`;
-      }
+      message += `${serviceName} (${serviceName.toLowerCase().replace(/\s+/g, '-')}) por ${formatPrice(price)} MXN.`;
     } else {
-      message += 'sus servicios contables';
+      message += 'sus servicios contables.';
     }
-    
-    message += '. ¿Podrían ayudarme?';
     
     if (userName) {
       message += `\n\nMi nombre es: ${userName}`;

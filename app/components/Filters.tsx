@@ -1,13 +1,14 @@
 'use client';
 
-import { categories } from '@/data/services';
+import { getUniqueCategories, getUniqueAudiences } from '@/data/services';
+import type { Category, Audience } from '@/data/services';
 
 interface FiltersProps {
-  selectedCategory: string;
-  selectedAudience: string;
+  selectedCategory: Category | 'Todas';
+  selectedAudience: Audience | 'Todos';
   priceRange: { min: number; max: number };
-  onCategoryChange: (category: string) => void;
-  onAudienceChange: (audience: string) => void;
+  onCategoryChange: (category: Category | 'Todas') => void;
+  onAudienceChange: (audience: Audience | 'Todos') => void;
   onPriceRangeChange: (range: { min: number; max: number }) => void;
 }
 
@@ -19,7 +20,8 @@ export default function Filters({
   onAudienceChange,
   onPriceRangeChange
 }: FiltersProps) {
-  const uniqueCategories = Array.from(new Set(categories.map(cat => cat.name)));
+  const uniqueCategories = getUniqueCategories();
+  const uniqueAudiences = getUniqueAudiences();
 
   return (
     <div className="space-y-6">
@@ -27,14 +29,25 @@ export default function Filters({
       <div>
         <h3 className="text-lg font-semibold text-text-gray mb-3">Tipo de Cliente</h3>
         <div className="space-y-2">
-          {['Todos', 'Persona', 'Empresa', 'Ambos'].map((audience) => (
+          <label className="flex items-center">
+            <input
+              type="radio"
+              name="audience"
+              value="Todos"
+              checked={selectedAudience === 'Todos'}
+              onChange={() => onAudienceChange('Todos')}
+              className="mr-2 text-primary focus:ring-primary"
+            />
+            <span className="text-sm text-text-gray">Todos</span>
+          </label>
+          {uniqueAudiences.map((audience) => (
             <label key={audience} className="flex items-center">
               <input
                 type="radio"
                 name="audience"
                 value={audience}
                 checked={selectedAudience === audience}
-                onChange={(e) => onAudienceChange(e.target.value)}
+                onChange={() => onAudienceChange(audience)}
                 className="mr-2 text-primary focus:ring-primary"
               />
               <span className="text-sm text-text-gray">{audience}</span>
@@ -49,7 +62,8 @@ export default function Filters({
         <div className="space-y-2">
           <label className="flex items-center">
             <input
-              type="checkbox"
+              type="radio"
+              name="category"
               checked={selectedCategory === 'Todas'}
               onChange={() => onCategoryChange('Todas')}
               className="mr-2 text-primary focus:ring-primary"
@@ -59,7 +73,8 @@ export default function Filters({
           {uniqueCategories.map((category) => (
             <label key={category} className="flex items-center">
               <input
-                type="checkbox"
+                type="radio"
+                name="category"
                 checked={selectedCategory === category}
                 onChange={() => onCategoryChange(category)}
                 className="mr-2 text-primary focus:ring-primary"

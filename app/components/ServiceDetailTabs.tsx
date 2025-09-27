@@ -51,10 +51,10 @@ export default function ServiceDetailTabs({ service }: ServiceDetailTabsProps) {
       case 'requisitos':
         return (
           <div className="space-y-3">
-            {service.requirements.map((requirement, index) => (
+            {service.requisitos?.map((requisito, index) => (
               <div key={index} className="flex items-start">
                 <span className="text-primary mr-2">•</span>
-                <span className="text-text-gray">{requirement}</span>
+                <span className="text-text-gray">{requisito}</span>
               </div>
             ))}
           </div>
@@ -63,7 +63,7 @@ export default function ServiceDetailTabs({ service }: ServiceDetailTabsProps) {
       case 'proceso':
         return (
           <div className="space-y-3">
-            {service.process.map((step, index) => (
+            {service.proceso?.map((step, index) => (
               <div key={index} className="flex items-start">
                 <span className="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-semibold mr-3 mt-0.5">
                   {index + 1}
@@ -77,7 +77,7 @@ export default function ServiceDetailTabs({ service }: ServiceDetailTabsProps) {
       case 'tiempos-costos':
         return (
           <div className="space-y-3">
-            {service.timesAndCosts.map((item, index) => (
+            {service.tiempos?.map((item, index) => (
               <div key={index} className="flex items-start">
                 <span className="text-accent mr-2">•</span>
                 <span className="text-text-gray">{item}</span>
@@ -89,13 +89,13 @@ export default function ServiceDetailTabs({ service }: ServiceDetailTabsProps) {
       case 'faqs':
         return (
           <div className="space-y-4">
-            {service.faqs.map((faq, index) => (
+            {service.faqs?.map((faq, index) => (
               <div key={index} className="border border-gray-200 rounded-lg">
                 <button
                   onClick={() => toggleAccordion(`faq-${index}`)}
                   className="w-full px-4 py-3 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
                 >
-                  <span className="font-medium text-text-gray">{faq.question}</span>
+                  <span className="font-medium text-text-gray">{faq.q}</span>
                   {openAccordions.includes(`faq-${index}`) ? (
                     <ChevronUp className="h-5 w-5 text-gray-400" />
                   ) : (
@@ -104,7 +104,7 @@ export default function ServiceDetailTabs({ service }: ServiceDetailTabsProps) {
                 </button>
                 {openAccordions.includes(`faq-${index}`) && (
                   <div className="px-4 pb-3 text-text-gray">
-                    {faq.answer}
+                    {faq.a}
                   </div>
                 )}
               </div>

@@ -18,16 +18,16 @@ export default function CotizacionPage() {
   };
 
   const buildWhatsAppMessage = () => {
-    let message = '¡Hola! Me interesa solicitar una cotización con los siguientes servicios:\n\n';
+    let message = 'Hola REA, me interesa solicitar una cotización con los siguientes servicios:\n\n';
     
     items.forEach((item, index) => {
-      message += `${index + 1}. ${item.service.title}\n`;
+      message += `${index + 1}. ${item.service.title} (${item.service.slug})\n`;
       message += `   Cantidad: ${item.quantity}\n`;
-      message += `   Precio unitario: ${formatPrice(item.service.price)}\n`;
-      message += `   Subtotal: ${formatPrice(item.service.price * item.quantity)}\n\n`;
+      message += `   Precio unitario: ${formatPrice(item.service.price)} MXN\n`;
+      message += `   Subtotal: ${formatPrice(item.service.price * item.quantity)} MXN\n\n`;
     });
     
-    message += `Total: ${formatPrice(getTotal())}\n\n`;
+    message += `Total: ${formatPrice(getTotal())} MXN\n\n`;
     message += '¿Podrían ayudarme con esta cotización?';
     
     return encodeURIComponent(message);
