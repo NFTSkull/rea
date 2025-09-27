@@ -9,7 +9,15 @@ import {
   FileText, 
   Calculator, 
   TrendingUp, 
-  Star
+  Star,
+  User,
+  Shield,
+  FileCheck,
+  Calendar,
+  Receipt,
+  Building,
+  AlertTriangle,
+  MoreHorizontal
 } from 'lucide-react';
 
 export default function HomePage() {
@@ -35,24 +43,66 @@ export default function HomePage() {
     }
   ];
 
-  const pillars = [
+  const solutions = [
     {
-      icon: FileText,
-      title: "Trámites SAT",
-      description: "RFC, e.firma, Buzón Tributario y regularizaciones",
-      color: "text-primary"
+      icon: User,
+      title: "RFC, personas",
+      description: "Alta y actualización de RFC para personas físicas",
+      href: "/tramites-y-servicios?categoria=Trámites SAT&audiencia=Persona"
     },
     {
-      icon: Calculator,
-      title: "Facturación & Nómina",
-      description: "CFDI 4.0, nómina timbrada y reportes",
-      color: "text-accent"
+      icon: Shield,
+      title: "e.firma, personas",
+      description: "Generación y renovación de e.firma para personas",
+      href: "/tramites-y-servicios?categoria=Trámites SAT&audiencia=Persona"
     },
     {
-      icon: TrendingUp,
-      title: "Planeación fiscal",
-      description: "RESICO, RIF y optimización de impuestos",
-      color: "text-success"
+      icon: FileCheck,
+      title: "Declaraciones para personas",
+      description: "Presentación de declaraciones mensuales y anuales",
+      href: "/tramites-y-servicios?categoria=Contabilidad&audiencia=Persona"
+    },
+    {
+      icon: Calendar,
+      title: "Cita",
+      description: "Agendamiento de citas ante el SAT",
+      href: "/contacto"
+    },
+    {
+      icon: Receipt,
+      title: "Factura electrónica",
+      description: "Implementación de CFDI 4.0 y facturación",
+      href: "/tramites-y-servicios?categoria=Facturación & Nómina"
+    },
+    {
+      icon: Building,
+      title: "RFC, empresas",
+      description: "Alta y actualización de RFC para empresas",
+      href: "/tramites-y-servicios?categoria=Trámites SAT&audiencia=Empresa"
+    },
+    {
+      icon: Shield,
+      title: "e.firma, empresas",
+      description: "Generación y renovación de e.firma para empresas",
+      href: "/tramites-y-servicios?categoria=Trámites SAT&audiencia=Empresa"
+    },
+    {
+      icon: FileCheck,
+      title: "Declaraciones para empresas",
+      description: "Presentación de declaraciones empresariales",
+      href: "/tramites-y-servicios?categoria=Contabilidad&audiencia=Empresa"
+    },
+    {
+      icon: AlertTriangle,
+      title: "Adeudos fiscales",
+      description: "Regularización de adeudos y multas fiscales",
+      href: "/tramites-y-servicios?categoria=Trámites SAT"
+    },
+    {
+      icon: MoreHorizontal,
+      title: "Más trámites y servicios",
+      description: "Consulta todos nuestros servicios disponibles",
+      href: "/tramites-y-servicios"
     }
   ];
 
@@ -88,30 +138,39 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Pillars Section */}
+      {/* Soluciones Contables Section */}
       <section className="section-padding bg-bg-primary">
         <div className="container-custom">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">
-              Nuestros servicios principales
+              Soluciones Contables
             </h2>
             <p className="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
-              Soluciones completas para tus necesidades contables y fiscales
+              Servicios especializados para personas y empresas ante el SAT
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {pillars.map((pillar, index) => (
-              <div key={index} className="text-center group">
-                <div className="icon-wrapper mx-auto mb-6 group-hover:scale-110 transition-transform duration-200">
-                  <pillar.icon className="h-6 w-6" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+            {solutions.map((solution, index) => (
+              <Link
+                key={index}
+                href={solution.href}
+                className="group block"
+              >
+                <div className="card text-center hover:shadow-large transition-all duration-200 group-hover:-translate-y-1">
+                  <div className="icon-wrapper mx-auto mb-4 group-hover:scale-110 transition-transform duration-200">
+                    <solution.icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-text-primary mb-2 group-hover:text-accent-600 transition-colors duration-200">
+                    {solution.title}
+                  </h3>
+                  <p className="text-sm text-text-secondary mb-4 leading-relaxed">
+                    {solution.description}
+                  </p>
+                  <span className="text-accent-600 text-sm font-medium group-hover:text-accent-700 transition-colors duration-200">
+                    Ver más →
+                  </span>
                 </div>
-                <h3 className="text-xl font-semibold text-text-primary mb-4">
-                  {pillar.title}
-                </h3>
-                <p className="text-text-secondary leading-relaxed">
-                  {pillar.description}
-                </p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
