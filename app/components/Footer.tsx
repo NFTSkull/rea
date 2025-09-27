@@ -20,35 +20,38 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-text-gray text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <footer className="bg-primary-900 text-white">
+      <div className="container-custom section-padding">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo y descripción */}
           <div className="lg:col-span-1">
-            <div className="flex items-center mb-4">
-              <div className="bg-primary text-white w-10 h-10 rounded-lg flex items-center justify-center font-bold text-lg">
-                REA
+            <div className="flex items-center mb-6">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-500 to-accent-600 flex items-center justify-center shadow-soft">
+                <span className="text-white font-bold text-lg tracking-wide">REA</span>
               </div>
-              <span className="ml-3 text-xl font-bold">REA</span>
+              <div className="ml-4">
+                <span className="text-xl font-bold text-white">REA</span>
+                <p className="text-xs text-primary-200 font-medium">Despacho Contable</p>
+              </div>
             </div>
-            <p className="text-gray-300 mb-4">
+            <p className="text-primary-200 mb-6 leading-relaxed">
               Contabilidad y trámites ante el SAT para personas y empresas en Monterrey, N.L.
             </p>
-            <div className="flex items-center text-gray-300">
-              <MapPin className="h-4 w-4 mr-2" />
+            <div className="flex items-center text-primary-200">
+              <MapPin className="h-4 w-4 mr-2 text-accent-400" />
               <span className="text-sm">Monterrey, N.L.</span>
             </div>
           </div>
 
           {/* Servicios */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Servicios</h3>
-            <ul className="space-y-2">
+            <h3 className="text-lg font-semibold mb-6 text-white">Servicios</h3>
+            <ul className="space-y-3">
               {footerLinks.servicios.map((link) => (
                 <li key={link.name}>
                   <Link 
                     href={link.href}
-                    className="text-gray-300 hover:text-white transition-colors"
+                    className="text-primary-200 hover:text-accent-400 transition-colors duration-200 text-sm"
                   >
                     {link.name}
                   </Link>
@@ -59,13 +62,13 @@ export default function Footer() {
 
           {/* Empresa */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Empresa</h3>
-            <ul className="space-y-2">
+            <h3 className="text-lg font-semibold mb-6 text-white">Empresa</h3>
+            <ul className="space-y-3">
               {footerLinks.empresa.map((link) => (
                 <li key={link.name}>
                   <Link 
                     href={link.href}
-                    className="text-gray-300 hover:text-white transition-colors"
+                    className="text-primary-200 hover:text-accent-400 transition-colors duration-200 text-sm"
                   >
                     {link.name}
                   </Link>
@@ -76,18 +79,24 @@ export default function Footer() {
 
           {/* Contacto */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contacto</h3>
-            <div className="space-y-3">
-              <div className="flex items-center text-gray-300">
-                <Phone className="h-4 w-4 mr-2" />
+            <h3 className="text-lg font-semibold mb-6 text-white">Contacto</h3>
+            <div className="space-y-4">
+              <div className="flex items-center text-primary-200">
+                <div className="w-8 h-8 rounded-lg bg-accent-500/20 flex items-center justify-center mr-3">
+                  <Phone className="h-4 w-4 text-accent-400" />
+                </div>
                 <span className="text-sm">+52 81 2110 2005</span>
               </div>
-              <div className="flex items-center text-gray-300">
-                <Mail className="h-4 w-4 mr-2" />
+              <div className="flex items-center text-primary-200">
+                <div className="w-8 h-8 rounded-lg bg-accent-500/20 flex items-center justify-center mr-3">
+                  <Mail className="h-4 w-4 text-accent-400" />
+                </div>
                 <span className="text-sm">contacto@rea.com.mx</span>
               </div>
-              <div className="flex items-center text-gray-300">
-                <Clock className="h-4 w-4 mr-2" />
+              <div className="flex items-center text-primary-200">
+                <div className="w-8 h-8 rounded-lg bg-accent-500/20 flex items-center justify-center mr-3">
+                  <Clock className="h-4 w-4 text-accent-400" />
+                </div>
                 <span className="text-sm">Lun - Vie: 9:00 - 18:00</span>
               </div>
             </div>
@@ -95,16 +104,16 @@ export default function Footer() {
         </div>
 
         {/* Línea divisoria */}
-        <div className="border-t border-gray-600 mt-8 pt-8">
+        <div className="border-t border-primary-700 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-300 text-sm">
+            <p className="text-primary-300 text-sm">
               © {currentYear} REA Despacho Contable. Todos los derechos reservados.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href="/aviso-de-privacidad" className="text-gray-300 hover:text-white text-sm transition-colors">
+              <Link href="/aviso-de-privacidad" className="text-primary-300 hover:text-accent-400 text-sm transition-colors duration-200">
                 Aviso de Privacidad
               </Link>
-              <Link href="/terminos-y-condiciones" className="text-gray-300 hover:text-white text-sm transition-colors">
+              <Link href="/terminos-y-condiciones" className="text-primary-300 hover:text-accent-400 text-sm transition-colors duration-200">
                 Términos y Condiciones
               </Link>
             </div>

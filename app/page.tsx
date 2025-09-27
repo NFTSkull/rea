@@ -57,18 +57,21 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-bg-primary">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary to-blue-600 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+      <section className="relative bg-gradient-to-br from-primary-900 via-primary-800 to-accent-700 text-white section-padding overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent"></div>
+        </div>
+        <div className="container-custom relative">
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
               ¿Qué trámite necesitas hoy?
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-blue-100">
+            <p className="text-xl md:text-2xl mb-12 text-primary-100 leading-relaxed">
               Contabilidad y trámites ante el SAT para personas y empresas
             </p>
-            <div className="max-w-2xl mx-auto mb-8">
+            <div className="max-w-2xl mx-auto mb-12">
               <SearchBar 
                 onSearch={() => {}}
                 placeholder="Buscar servicios contables..."
@@ -76,8 +79,8 @@ export default function HomePage() {
               />
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <WhatsappCTA className="btn-accent bg-accent hover:bg-green-600" />
-              <Link href="/contacto" className="btn-secondary bg-white text-primary hover:bg-gray-100">
+              <WhatsappCTA className="btn-accent" />
+              <Link href="/contacto" className="btn-secondary">
                 Agendar llamada
               </Link>
             </div>
@@ -86,26 +89,26 @@ export default function HomePage() {
       </section>
 
       {/* Pillars Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-text-gray mb-4">
+      <section className="section-padding bg-bg-primary">
+        <div className="container-custom">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">
               Nuestros servicios principales
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
               Soluciones completas para tus necesidades contables y fiscales
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {pillars.map((pillar, index) => (
-              <div key={index} className="text-center">
-                <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 mb-4`}>
-                  <pillar.icon className={`h-8 w-8 ${pillar.color}`} />
+              <div key={index} className="text-center group">
+                <div className="icon-wrapper mx-auto mb-6 group-hover:scale-110 transition-transform duration-200">
+                  <pillar.icon className="h-6 w-6" />
                 </div>
-                <h3 className="text-xl font-semibold text-text-gray mb-2">
+                <h3 className="text-xl font-semibold text-text-primary mb-4">
                   {pillar.title}
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-text-secondary leading-relaxed">
                   {pillar.description}
                 </p>
               </div>
@@ -115,22 +118,22 @@ export default function HomePage() {
       </section>
 
       {/* Popular Services */}
-      <section className="py-16 bg-bg-light">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-text-gray mb-4">
+      <section className="section-padding bg-bg-secondary">
+        <div className="container-custom">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">
               Trámites y servicios populares
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
               Los servicios más solicitados por nuestros clientes
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {popularServices.map((service) => (
               <ServiceCard key={service.slug} service={service} />
             ))}
           </div>
-          <div className="text-center mt-8">
+          <div className="text-center mt-12">
             <Link href="/tramites-y-servicios" className="btn-primary">
               Ver todos los servicios
             </Link>
@@ -139,30 +142,30 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-text-gray mb-4">
+      <section className="section-padding bg-bg-primary">
+        <div className="container-custom">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">
               Lo que dicen nuestros clientes
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
               Testimonios reales de personas que confían en nosotros
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="card text-center">
-                <div className="flex justify-center mb-4">
+              <div key={index} className="card-elevated text-center group">
+                <div className="flex justify-center mb-6">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                    <Star key={i} className="h-5 w-5 text-accent-500 fill-current" />
                   ))}
                 </div>
-                <p className="text-gray-600 mb-4 italic">
+                <p className="text-text-secondary mb-6 italic leading-relaxed">
                   &ldquo;{testimonial.content}&rdquo;
                 </p>
                 <div>
-                  <p className="font-semibold text-text-gray">{testimonial.name}</p>
-                  <p className="text-sm text-gray-500">{testimonial.role}</p>
+                  <p className="font-semibold text-text-primary">{testimonial.name}</p>
+                  <p className="text-sm text-text-tertiary">{testimonial.role}</p>
                 </div>
               </div>
             ))}
@@ -171,46 +174,46 @@ export default function HomePage() {
       </section>
 
       {/* Trust Indicators */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-text-gray mb-4">
+      <section className="section-padding bg-bg-tertiary">
+        <div className="container-custom">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">
               Confianza y experiencia
             </h2>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-3xl font-bold text-primary mb-2">500+</div>
-              <p className="text-gray-600">Clientes satisfechos</p>
+            <div className="group">
+              <div className="text-4xl font-bold text-primary-800 mb-3 group-hover:text-accent-600 transition-colors duration-200">500+</div>
+              <p className="text-text-secondary font-medium">Clientes satisfechos</p>
             </div>
-            <div>
-              <div className="text-3xl font-bold text-primary mb-2">5+</div>
-              <p className="text-gray-600">Años de experiencia</p>
+            <div className="group">
+              <div className="text-4xl font-bold text-primary-800 mb-3 group-hover:text-accent-600 transition-colors duration-200">5+</div>
+              <p className="text-text-secondary font-medium">Años de experiencia</p>
             </div>
-            <div>
-              <div className="text-3xl font-bold text-primary mb-2">100%</div>
-              <p className="text-gray-600">Cumplimiento SAT</p>
+            <div className="group">
+              <div className="text-4xl font-bold text-primary-800 mb-3 group-hover:text-accent-600 transition-colors duration-200">100%</div>
+              <p className="text-text-secondary font-medium">Cumplimiento SAT</p>
             </div>
-            <div>
-              <div className="text-3xl font-bold text-primary mb-2">24/7</div>
-              <p className="text-gray-600">Soporte disponible</p>
+            <div className="group">
+              <div className="text-4xl font-bold text-primary-800 mb-3 group-hover:text-accent-600 transition-colors duration-200">24/7</div>
+              <p className="text-text-secondary font-medium">Soporte disponible</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA Final */}
-      <section className="py-16 bg-primary text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">
+      <section className="section-padding bg-gradient-to-br from-primary-800 to-accent-700 text-white">
+        <div className="container-custom text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
             ¿Listo para regularizar tu situación fiscal?
           </h2>
-          <p className="text-xl mb-8 text-blue-100">
+          <p className="text-xl mb-12 text-primary-100 max-w-3xl mx-auto leading-relaxed">
             Contáctanos hoy mismo y recibe una asesoría personalizada
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <WhatsappCTA className="bg-accent hover:bg-green-600" />
-            <Link href="/contacto" className="btn-secondary bg-white text-primary hover:bg-gray-100">
+            <WhatsappCTA className="btn-accent" />
+            <Link href="/contacto" className="btn-secondary">
               Agendar consulta
             </Link>
           </div>
