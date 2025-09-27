@@ -4,6 +4,7 @@ import { services } from '@/data/services';
 import SearchBar from '@/app/components/SearchBar';
 import ServiceCard from '@/app/components/ServiceCard';
 import WhatsappCTA from '@/app/components/WhatsappCTA';
+import PromoCarousel from '@/app/components/PromoCarousel';
 import Link from 'next/link';
 import { 
   FileText, 
@@ -187,6 +188,12 @@ export default function HomePage() {
               Los servicios más solicitados por nuestros clientes
             </p>
           </div>
+
+          {/* Promotional Carousel */}
+          <div className="mb-12">
+            <PromoCarousel />
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {popularServices.map((service) => (
               <ServiceCard key={service.slug} service={service} />
