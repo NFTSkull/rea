@@ -200,18 +200,227 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-              
-              <div className="absolute -top-6 -right-6 bg-bg-primary rounded-xl p-4 shadow-large border border-border-light">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-success-100 flex items-center justify-center">
-                    <FileCheck className="h-5 w-5 text-success-600" />
-                  </div>
-                  <div>
-                    <div className="text-lg font-bold text-text-primary">100%</div>
-                    <div className="text-xs text-text-tertiary">Cumplimiento SAT</div>
-                  </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose REA Section */}
+      <section className="section-padding bg-bg-primary">
+        <div className="container-custom">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">
+              ¿Por qué elegir REA?
+            </h2>
+            <p className="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
+              Más de 5 años de experiencia ayudando a personas y empresas a cumplir con sus obligaciones fiscales
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="text-center group">
+              <div className="icon-wrapper mx-auto mb-6 group-hover:scale-110 transition-transform duration-200">
+                <Shield className="h-6 w-6" />
+              </div>
+              <h3 className="text-xl font-semibold text-text-primary mb-4">
+                Experiencia certificada
+              </h3>
+              <p className="text-text-secondary leading-relaxed">
+                Contadores certificados con amplia experiencia en trámites ante el SAT y normativa fiscal vigente.
+              </p>
+            </div>
+            
+            <div className="text-center group">
+              <div className="icon-wrapper mx-auto mb-6 group-hover:scale-110 transition-transform duration-200">
+                <FileCheck className="h-6 w-6" />
+              </div>
+              <h3 className="text-xl font-semibold text-text-primary mb-4">
+                100% cumplimiento
+              </h3>
+              <p className="text-text-secondary leading-relaxed">
+                Garantizamos el cumplimiento total de tus obligaciones fiscales con el SAT y autoridades competentes.
+              </p>
+            </div>
+            
+            <div className="text-center group">
+              <div className="icon-wrapper mx-auto mb-6 group-hover:scale-110 transition-transform duration-200">
+                <Calendar className="h-6 w-6" />
+              </div>
+              <h3 className="text-xl font-semibold text-text-primary mb-4">
+                Atención personalizada
+              </h3>
+              <p className="text-text-secondary leading-relaxed">
+                Asesoría personalizada y seguimiento continuo para resolver todas tus dudas fiscales.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Overview Section */}
+      <section className="section-padding bg-bg-secondary">
+        <div className="container-custom">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">
+              Nuestros servicios especializados
+            </h2>
+            <p className="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
+              Soluciones integrales para todas tus necesidades contables y fiscales
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="card-elevated">
+              <div className="flex items-start gap-4">
+                <div className="icon-wrapper-accent">
+                  <FileText className="h-6 w-6" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-text-primary mb-3">
+                    Trámites ante el SAT
+                  </h3>
+                  <p className="text-text-secondary mb-4 leading-relaxed">
+                    Alta y actualización de RFC, generación de e.firma, configuración de Buzón Tributario y regularizaciones fiscales.
+                  </p>
+                  <ul className="space-y-2 text-sm text-text-secondary">
+                    <li className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 bg-accent-500 rounded-full"></div>
+                      RFC para personas y empresas
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 bg-accent-500 rounded-full"></div>
+                      e.firma y certificados digitales
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 bg-accent-500 rounded-full"></div>
+                      Regularización de adeudos
+                    </li>
+                  </ul>
                 </div>
               </div>
+            </div>
+            
+            <div className="card-elevated">
+              <div className="flex items-start gap-4">
+                <div className="icon-wrapper-accent">
+                  <Calculator className="h-6 w-6" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-text-primary mb-3">
+                    Facturación y Nómina
+                  </h3>
+                  <p className="text-text-secondary mb-4 leading-relaxed">
+                    Implementación de CFDI 4.0, nómina timbrada, reportes y capacitación para tu equipo.
+                  </p>
+                  <ul className="space-y-2 text-sm text-text-secondary">
+                    <li className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 bg-accent-500 rounded-full"></div>
+                      CFDI 4.0 y facturación electrónica
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 bg-accent-500 rounded-full"></div>
+                      Nómina timbrada y reportes
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 bg-accent-500 rounded-full"></div>
+                      Capacitación y soporte técnico
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div className="card-elevated">
+              <div className="flex items-start gap-4">
+                <div className="icon-wrapper-accent">
+                  <TrendingUp className="h-6 w-6" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-text-primary mb-3">
+                    Planeación Fiscal
+                  </h3>
+                  <p className="text-text-secondary mb-4 leading-relaxed">
+                    Asesoría para RESICO, RIF, optimización de impuestos y estrategias fiscales personalizadas.
+                  </p>
+                  <ul className="space-y-2 text-sm text-text-secondary">
+                    <li className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 bg-accent-500 rounded-full"></div>
+                      Migración a RESICO
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 bg-accent-500 rounded-full"></div>
+                      Optimización de impuestos
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 bg-accent-500 rounded-full"></div>
+                      Estrategias fiscales
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div className="card-elevated">
+              <div className="flex items-start gap-4">
+                <div className="icon-wrapper-accent">
+                  <BarChart3 className="h-6 w-6" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-text-primary mb-3">
+                    Contabilidad Integral
+                  </h3>
+                  <p className="text-text-secondary mb-4 leading-relaxed">
+                    Llevado contable mensual, declaraciones, cierre anual y reportes ejecutivos para tu empresa.
+                  </p>
+                  <ul className="space-y-2 text-sm text-text-secondary">
+                    <li className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 bg-accent-500 rounded-full"></div>
+                      Contabilidad mensual y anual
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 bg-accent-500 rounded-full"></div>
+                      Declaraciones y reportes
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 bg-accent-500 rounded-full"></div>
+                      Análisis financiero
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Indicators Section */}
+      <section className="section-padding bg-bg-tertiary">
+        <div className="container-custom">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">
+              Confianza y experiencia
+            </h2>
+            <p className="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
+              Números que respaldan nuestro compromiso con la excelencia
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div className="group">
+              <div className="text-4xl font-bold text-primary-800 mb-3 group-hover:text-accent-600 transition-colors duration-200">500+</div>
+              <p className="text-text-secondary font-medium">Clientes satisfechos</p>
+            </div>
+            <div className="group">
+              <div className="text-4xl font-bold text-primary-800 mb-3 group-hover:text-accent-600 transition-colors duration-200">5+</div>
+              <p className="text-text-secondary font-medium">Años de experiencia</p>
+            </div>
+            <div className="group">
+              <div className="text-4xl font-bold text-primary-800 mb-3 group-hover:text-accent-600 transition-colors duration-200">100%</div>
+              <p className="text-text-secondary font-medium">Cumplimiento SAT</p>
+            </div>
+            <div className="group">
+              <div className="text-4xl font-bold text-primary-800 mb-3 group-hover:text-accent-600 transition-colors duration-200">24/7</div>
+              <p className="text-text-secondary font-medium">Soporte disponible</p>
             </div>
           </div>
         </div>
