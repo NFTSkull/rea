@@ -1,5 +1,5 @@
-type Audience = 'Persona' | 'Empresa' | 'Ambos';
-type Category = 'Trámites SAT' | 'Facturación & Nómina' | 'Capacitación' | 'Planeación fiscal' | 'Contabilidad';
+export type Audience = 'Persona' | 'Empresa' | 'Ambos';
+export type Category = 'Trámites SAT' | 'Facturación & Nómina' | 'Capacitación' | 'Planeación fiscal' | 'Contabilidad';
 
 export interface Service {
   slug: string;

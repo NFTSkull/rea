@@ -30,7 +30,8 @@ export default function WhatsappCTA({
     let message = 'Hola REA, me interesa el servicio: ';
     
     if (serviceName) {
-      message += `${serviceName} (${serviceName.toLowerCase().replace(/\s+/g, '-')}) por ${formatPrice(price)} MXN.`;
+      const priceText = price ? ` por ${formatPrice(price)} MXN` : '';
+      message += `${serviceName} (${serviceName.toLowerCase().replace(/\s+/g, '-')})${priceText}.`;
     } else {
       message += 'sus servicios contables.';
     }

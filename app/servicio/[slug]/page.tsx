@@ -176,7 +176,7 @@ export default function ServiceDetailPage({ params }: ServiceDetailPageProps) {
                   <div className="mt-6 pt-6 border-t border-gray-200">
                     <div className="flex items-center justify-center text-sm text-gray-600 mb-2">
                       <Clock className="h-4 w-4 mr-2" />
-                      <span>Tiempo estimado: {service.timesAndCosts[0]?.replace('Tiempo estimado: ', '') || 'Variable'}</span>
+                      <span>Tiempo estimado: {service.tiempos?.[0]?.replace('Tiempo estimado: ', '') || 'Variable'}</span>
                     </div>
                     <div className="flex items-center justify-center text-sm text-gray-600">
                       <Users className="h-4 w-4 mr-2" />

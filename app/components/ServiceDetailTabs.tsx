@@ -33,7 +33,7 @@ export default function ServiceDetailTabs({ service }: ServiceDetailTabsProps) {
       case 'descripcion':
         return (
           <div className="space-y-4">
-            <p className="text-text-gray leading-relaxed">{service.description}</p>
+            <p className="text-text-gray leading-relaxed">{service.summary}</p>
             <div>
               <h4 className="font-semibold text-text-gray mb-3">Características principales:</h4>
               <ul className="space-y-2">
