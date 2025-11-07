@@ -100,15 +100,6 @@ export default function TramitesYServiciosPage() {
       <div className="container-custom section-padding">
         <Breadcrumbs items={breadcrumbItems} />
 
-        <div className="text-center mb-16">
-          <h1 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">
-            Trámites y servicios
-          </h1>
-          <p className="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
-            Encuentra el servicio que necesitas para cumplir con tus obligaciones fiscales
-          </p>
-        </div>
-
         <div className="mb-16">
           <PromoCarousel />
         </div>
