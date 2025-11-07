@@ -210,10 +210,10 @@ export default function HomePage() {
         <div className="container-custom">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">
-              ¿Por qué elegir REA?
+              ¿Por qué elegir El Conta REA?
             </h2>
             <p className="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
-              Más de 5 años de experiencia ayudando a personas y empresas a cumplir con sus obligaciones fiscales
+              En El Conta REA, transformamos la experiencia fiscal en una ruta clara, segura y eficiente, ofreciendo soluciones prácticas, asesoría y acompañamiento personalizado.
             </p>
           </div>
           
@@ -223,10 +223,10 @@ export default function HomePage() {
                 <Shield className="h-6 w-6" />
               </div>
               <h3 className="text-xl font-semibold text-text-primary mb-4">
-                Experiencia certificada
+                Experiencia
               </h3>
               <p className="text-text-secondary leading-relaxed">
-                Contadores certificados con amplia experiencia en trámites ante el SAT y normativa fiscal vigente.
+                Nuestros contadores dominan la normativa fiscal vigente y se capacitan continuamente para ofrecerte soluciones precisas.
               </p>
             </div>
             
@@ -235,10 +235,10 @@ export default function HomePage() {
                 <FileCheck className="h-6 w-6" />
               </div>
               <h3 className="text-xl font-semibold text-text-primary mb-4">
-                100% cumplimiento
+                Cumplimiento
               </h3>
               <p className="text-text-secondary leading-relaxed">
-                Garantizamos el cumplimiento total de tus obligaciones fiscales con el SAT y autoridades competentes.
+                Nuestros expertos te brindan apoyo para que conozcas y cumplas con tus obligaciones como contribuyente.
               </p>
             </div>
             
@@ -250,7 +250,7 @@ export default function HomePage() {
                 Atención personalizada
               </h3>
               <p className="text-text-secondary leading-relaxed">
-                Asesoría personalizada y seguimiento continuo para resolver todas tus dudas fiscales.
+                Un acompañamiento fiscal adaptado a tus necesidades, con seguimiento constante garantizando soluciones precisas y oportunas.
               </p>
             </div>
           </div>
@@ -303,27 +303,27 @@ export default function HomePage() {
             <div className="card-elevated">
               <div className="flex items-start gap-4">
                 <div className="icon-wrapper-accent">
-                  <Calculator className="h-6 w-6" />
+                  <BarChart3 className="h-6 w-6" />
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-text-primary mb-3">
-                    Facturación y Nómina
+                    Contabilidad Integral
                   </h3>
                   <p className="text-text-secondary mb-4 leading-relaxed">
-                    Implementación de CFDI 4.0, nómina timbrada, reportes y capacitación para tu equipo.
+                    Llevado contable mensual, declaraciones, cierre anual y reportes ejecutivos para tu empresa.
                   </p>
                   <ul className="space-y-2 text-sm text-text-secondary">
                     <li className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 bg-accent-500 rounded-full"></div>
-                      CFDI 4.0 y facturación electrónica
+                      Contabilidad mensual y anual
                     </li>
                     <li className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 bg-accent-500 rounded-full"></div>
-                      Nómina timbrada y reportes
+                      Declaraciones y reportes
                     </li>
                     <li className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 bg-accent-500 rounded-full"></div>
-                      Capacitación y soporte técnico
+                      Análisis financiero
                     </li>
                   </ul>
                 </div>
@@ -363,27 +363,27 @@ export default function HomePage() {
             <div className="card-elevated">
               <div className="flex items-start gap-4">
                 <div className="icon-wrapper-accent">
-                  <BarChart3 className="h-6 w-6" />
+                  <Calculator className="h-6 w-6" />
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-text-primary mb-3">
-                    Contabilidad Integral
+                    Facturación y Nómina
                   </h3>
                   <p className="text-text-secondary mb-4 leading-relaxed">
-                    Llevado contable mensual, declaraciones, cierre anual y reportes ejecutivos para tu empresa.
+                    Implementación de CFDI 4.0, nómina timbrada, reportes y capacitación para tu equipo.
                   </p>
                   <ul className="space-y-2 text-sm text-text-secondary">
                     <li className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 bg-accent-500 rounded-full"></div>
-                      Contabilidad mensual y anual
+                      CFDI 4.0 y facturación electrónica
                     </li>
                     <li className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 bg-accent-500 rounded-full"></div>
-                      Declaraciones y reportes
+                      Nómina timbrada y reportes
                     </li>
                     <li className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 bg-accent-500 rounded-full"></div>
-                      Análisis financiero
+                      Capacitación y soporte técnico
                     </li>
                   </ul>
                 </div>

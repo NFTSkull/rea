@@ -8,6 +8,7 @@ import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 export default function ContactoPage() {
   const [formData, setFormData] = useState({
     nombre: '',
+    rfc: '',
     email: '',
     telefono: '',
     tipoCliente: '',
@@ -34,6 +35,7 @@ export default function ContactoPage() {
       alert('¡Gracias por contactarnos! Te responderemos pronto.');
       setFormData({
         nombre: '',
+        rfc: '',
         email: '',
         telefono: '',
         tipoCliente: '',
@@ -87,8 +89,25 @@ export default function ContactoPage() {
                 </div>
                 
                 <div>
+                  <label htmlFor="rfc" className="block text-sm font-medium text-text-gray mb-2">
+                    RFC (opcional)
+                  </label>
+                  <input
+                    type="text"
+                    id="rfc"
+                    name="rfc"
+                    value={formData.rfc}
+                    onChange={handleInputChange}
+                    className="input-field"
+                    placeholder="Ej. ABCD850101XX1"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
                   <label htmlFor="email" className="block text-sm font-medium text-text-gray mb-2">
-                    Correo electrónico *
+                    Correo electrónico (opcional)
                   </label>
                   <input
                     type="email"
@@ -96,14 +115,11 @@ export default function ContactoPage() {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    required
                     className="input-field"
                     placeholder="tu@email.com"
                   />
                 </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                
                 <div>
                   <label htmlFor="telefono" className="block text-sm font-medium text-text-gray mb-2">
                     Teléfono
@@ -140,14 +156,13 @@ export default function ContactoPage() {
 
               <div>
                 <label htmlFor="mensaje" className="block text-sm font-medium text-text-gray mb-2">
-                  Mensaje *
+                  Mensaje (opcional)
                 </label>
                 <textarea
                   id="mensaje"
                   name="mensaje"
                   value={formData.mensaje}
                   onChange={handleInputChange}
-                  required
                   rows={5}
                   className="input-field resize-none"
                   placeholder="Cuéntanos cómo podemos ayudarte..."
